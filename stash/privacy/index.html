@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Stash Privacy Policy</title><meta name="description" content="What Stash does with your information."><link rel="stylesheet" href="/style.css"></head><body><main>
+<nav><a href="/"><b>&gt;</b> labyrinthcode</a> / <a href="/stash/">stash</a> / privacy</nav>
+<h1 id="privacy-policy-for-stash">Privacy Policy for "Stash"</h1>
+<h3 id="effective-date-31102026-ddmmyyyy">Effective Date: 31/10/2026
+(dd/mm/yyyy)</h3>
+<p>Thank you for choosing Stash. This Privacy Policy explains what Stash
+does with your information. In short: everything stays on your device,
+encrypted. Nothing is sent anywhere unless you turn on sync, and then
+only encrypted files go to your own Google Drive.</p>
+<p>By using Stash, you consent to the practices described in this
+policy.</p>
+<h2 id="information-we-collect">Information We Collect:</h2>
+<ul>
+<li><p><strong>Stash does not collect any personal data or information
+from its users</strong>. There is no Stash server and no Stash account.
+The app has no analytics, ads, crash reporting or tracking of any kind.
+It uses the network only for sync, and only after you turn sync on (see
+below).</p></li>
+<li><p><strong>Storage and Use of Data</strong>: Everything you add to
+Stash (passwords, API keys, env files, SSH keys, database URLs, 2FA
+secrets, notes and tags) is stored only on your device, in an encrypted
+vault. Android's cloud backup and device-to-device transfer are turned
+off for the app's data. Users have full control over their data and can
+delete it at any time from within the app, or by uninstalling the app or
+clearing its storage.</p></li>
+<li><p><strong>Backups and Exports</strong>: When you turn on backups or
+export your vault, Stash writes an encrypted file to a location you
+choose with Android's file picker. If you choose a cloud folder, that
+file is handled by that service under its own policy. The file stays
+encrypted and can only be opened with your passphrase.</p></li>
+<li><p><strong>Import and Export</strong>: You can import an export file
+from another password manager (Google Password Manager, Bitwarden,
+1Password, Apple Passwords, KeePassXC) that you pick with the file
+picker. Stash reads it on the device, adds its items to your vault and
+offers to delete the file; nothing is uploaded. You can also export your
+passwords as a plain (not encrypted) Bitwarden JSON or Google CSV file
+to a place you choose, after re-entering your passphrase. Anyone with
+that file can read it, so delete it once you have imported it elsewhere.
+On supported systems you can move passwords directly between Stash and
+another password manager on the same device (Credential Exchange). The
+system passes them from one app to the other; no file is written and
+nothing goes through a server of ours.</p></li>
+<li><p><strong>Sync (optional, off by default)</strong>: If you turn on
+sync, you sign in with your Google account and Stash asks only for
+access to its own hidden app folder in your Google Drive (the
+<code>drive.appdata</code> scope). It cannot see or change any of your
+other Drive files. Before anything leaves the device, your vault is
+encrypted with a sync key that is itself locked by your Stash
+passphrase, so Google, the developer and anyone else without your
+passphrase see only ciphertext. Drive does see the number of files,
+their sizes and times, and each device's name (for example "Pixel 8").
+The same applies to the Stash browser extension when you sign in to it.
+Stash keeps your Google sign-in on the device (Google Play services on
+Android, the iOS Keychain on iOS) and uses it only to talk to Google
+Drive. Turning sync off stops it; you can also delete every synced file
+from Drive.</p></li>
+<li><p><strong>Browser extension (Stash for Chrome)</strong>: The
+extension works only with sync: it signs in to the same Google account
+and reads the same encrypted files from your Drive's hidden app folder,
+and unlocks them with your Stash passphrase. On every website, a small
+script notices when you submit a login form and passes that username and
+password to the extension, so it can offer to save them; if you don't
+save, they are dropped when you close the tab or the browser. When you
+open the extension it reads the current tab's address to list the logins
+saved for that site, and fills a login into the page only when you click
+it. Your vault is cached in the browser encrypted; the key that opens it
+is kept in memory only and is forgotten when the browser closes or after
+15 minutes. The extension sends nothing anywhere except your encrypted
+files to and from your own Google Drive.</p></li>
+<li><p><strong>Camera</strong>: The camera is used only while you scan a
+2FA QR code. Frames are processed on the device and are never saved or
+sent anywhere.</p></li>
+<li><p><strong>Autofill</strong>: If you set Stash as your autofill
+service, Android shows it the fields of the app or website you are
+filling in, so it can suggest a matching login. This happens on the
+device, and nothing is sent anywhere.</p></li>
+<li><p><strong>Biometrics</strong>: Fingerprint or face unlock is
+handled entirely by Android. Stash never receives your biometric data;
+it is only told whether unlocking succeeded.</p></li>
+<li><p><strong>Clipboard</strong>: Secrets you copy are marked as
+sensitive, so Android hides them from clipboard previews, and Stash
+clears them from the clipboard after the time you choose in
+settings.</p></li>
+<li><p><strong>Security</strong>: Stash takes user privacy and data
+security seriously. The vault is encrypted with a key derived from your
+passphrase (Argon2id), and screenshots of the app are blocked by
+default. Your passphrase is never stored; without it, the vault cannot
+be read, and it cannot be recovered. Your data stays on your device and
+is never shared with third parties. The only thing that leaves it is the
+encrypted sync files, and only if you turn on sync, to your own Google
+Drive.</p></li>
+<li><p><strong>Children's Privacy</strong>: Stash is intended for
+general audiences and does not knowingly collect personal information
+from anyone, including children under the age of 13. Since Stash keeps
+no data outside the user's device, there are no records for us to hold
+or delete.</p></li>
+</ul>
+<h2 id="changes-to-the-privacy-policy">Changes to the Privacy
+Policy:</h2>
+<p>We may update our Privacy Policy from time to time.<br> Any changes
+will be reflected in the updated policy, and the effective date will be
+revised accordingly.<br> It is recommended to review the Privacy Policy
+periodically for any updates or modifications.</p>
+<h2 id="contact-us">Contact Us:</h2>
+<p>If you have any questions, concerns, or suggestions regarding our
+Privacy Policy or Stash, please contact us at <a
+href="mailto:labyrinthcode10@gmail.com">labyrinthcode10@gmail.com</a></p>
+<h3
+id="by-using-stash-you-acknowledge-that-you-have-read-and-understood-this-privacy-policy-and-agree-to-its-terms">By
+using Stash, you acknowledge that you have read and understood this
+Privacy Policy and agree to its terms.</h3>
+
+</main></body></html>
