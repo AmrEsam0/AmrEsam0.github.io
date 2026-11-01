@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Stash Privacy Policy</title><meta name="description" content="What Stash does with your information."><link rel="stylesheet" href="/style.css"></head><body><main>
 <nav><a href="/"><b>&gt;</b> labyrinthcode</a> / <a href="/stash/">stash</a> / privacy</nav>
 <h1 id="privacy-policy-for-stash">Privacy Policy for "Stash"</h1>
-<h3 id="effective-date-31102026-ddmmyyyy">Effective Date: 31/10/2026
+<h3 id="effective-date-01112026-ddmmyyyy">Effective Date: 01/11/2026
 (dd/mm/yyyy)</h3>
 <p>Thank you for choosing Stash. This Privacy Policy explains what Stash
 does with your information. In short: everything stays on your device,
@@ -19,13 +19,15 @@ below).</p></li>
 <li><p><strong>Storage and Use of Data</strong>: Everything you add to
 Stash (passwords, API keys, env files, SSH keys, database URLs, 2FA
 secrets, notes and tags) is stored only on your device, in an encrypted
-vault. Android's cloud backup and device-to-device transfer are turned
-off for the app's data. Users have full control over their data and can
-delete it at any time from within the app, or by uninstalling the app or
+vault. On Android, cloud backup and device-to-device transfer are turned
+off for the app's data. On iOS, the encrypted vault file can be part of
+your device's iCloud or computer backup; it stays encrypted with your
+passphrase there. Users have full control over their data and can delete
+it at any time from within the app, or by uninstalling the app or
 clearing its storage.</p></li>
 <li><p><strong>Backups and Exports</strong>: When you turn on backups or
 export your vault, Stash writes an encrypted file to a location you
-choose with Android's file picker. If you choose a cloud folder, that
+choose with the system file picker. If you choose a cloud folder, that
 file is handled by that service under its own policy. The file stays
 encrypted and can only be opened with your passphrase.</p></li>
 <li><p><strong>Import and Export</strong>: You can import an export file
@@ -70,17 +72,19 @@ files to and from your own Google Drive.</p></li>
 <li><p><strong>Camera</strong>: The camera is used only while you scan a
 2FA QR code. Frames are processed on the device and are never saved or
 sent anywhere.</p></li>
-<li><p><strong>Autofill</strong>: If you set Stash as your autofill
-service, Android shows it the fields of the app or website you are
-filling in, so it can suggest a matching login. This happens on the
-device, and nothing is sent anywhere.</p></li>
-<li><p><strong>Biometrics</strong>: Fingerprint or face unlock is
-handled entirely by Android. Stash never receives your biometric data;
-it is only told whether unlocking succeeded.</p></li>
+<li><p><strong>Autofill</strong>: If you turn on Stash for AutoFill, the
+system tells it which app or website you are signing in to (and on
+Android, the fields you are filling in), so it can suggest a matching
+login. This happens on the device, and nothing is sent
+anywhere.</p></li>
+<li><p><strong>Biometrics</strong>: Fingerprint, Face ID or Touch ID
+unlock is handled entirely by the operating system. Stash never receives
+your biometric data; it is only told whether unlocking
+succeeded.</p></li>
 <li><p><strong>Clipboard</strong>: Secrets you copy are marked as
-sensitive, so Android hides them from clipboard previews, and Stash
-clears them from the clipboard after the time you choose in
-settings.</p></li>
+sensitive, so Android hides them from clipboard previews, and on iOS
+they stay on this device (no Universal Clipboard). Stash clears them
+from the clipboard after the time you choose in settings.</p></li>
 <li><p><strong>Security</strong>: Stash takes user privacy and data
 security seriously. The vault is encrypted with a key derived from your
 passphrase (Argon2id), and screenshots of the app are blocked by
