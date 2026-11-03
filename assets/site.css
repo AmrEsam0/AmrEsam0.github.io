@@ -165,3 +165,16 @@ h3.num { font-size: clamp(26px, 3vw, 38px); font-weight: 800; letter-spacing: -.
 .role p { font-size: 13px; max-width: 64ch; }
 .role .tags { margin-top: 14px; }
 .btn svg { width: 16px; height: 16px; flex: none; }
+
+/* long-form text (policies built from Markdown) */
+.policy { max-width: 80ch; font-size: 14px; }
+.policy h2 { font-size: clamp(20px, 3vw, 26px); font-weight: 800; margin: 40px 0 14px; }
+.policy h2:first-child { margin-top: 0; }
+.policy h3 { font-size: 15px; margin: 28px 0 10px; }
+.policy ul { padding-left: 20px; margin: 0; }
+.policy li { margin-bottom: 14px; }
+.policy li::marker { color: var(--brand); }
+.policy li p { margin: 0; }
+.gallery.landscape { grid-auto-columns: clamp(280px, 72vw, 560px); }
+.gallery > figure { scroll-snap-align: start; }
+.gallery.landscape img { aspect-ratio: 16 / 10; }

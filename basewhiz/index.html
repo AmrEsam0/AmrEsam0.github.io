@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BaseWhiz · Amr Essam</title><meta name="description" content="BaseWhiz: a number-base calculator for CS students that shows every step of the working."><link rel="icon" href="/assets/basewhiz/icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Martian+Mono:wght@400;700;800&display=swap"><link rel="stylesheet" href="/assets/site.css?v=3"></head><body style="--brand:#ffbb01">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BaseWhiz · Amr Essam</title><meta name="description" content="BaseWhiz: a number-base calculator for CS students that shows every step of the working."><link rel="icon" href="/assets/basewhiz/icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Martian+Mono:wght@400;700;800&display=swap"><link rel="stylesheet" href="/assets/site.css?v=5"></head><body style="--brand:#ffbb01">
 <header class="top"><div class="wrap"><a class="home" href="/">amr.essam</a><nav><a href="/#work">work</a><a href="/about/">about</a><a href="/#redacted">redacted</a><a class="opt" href="/#stack">stack</a><a href="/#contact">contact</a></nav></div></header>
 <main class="wrap">
 <p class="crumbs"><a href="/">~</a> / <a href="/#work">work</a> / basewhiz</p>
@@ -6,39 +6,46 @@
   <img class="p-icon" src="/assets/basewhiz/icon.png" alt="BaseWhiz app icon" width="96" height="96">
   <p class="kicker"><b>Education</b> · Android · iOS</p>
   <h1 class="display">BaseWhiz</h1>
-  <p class="sub">A number-base calculator for CS students. Converts between bases, two's complement, IEEE 754 floats and text, and shows every step of the working, the way an exam asks for it.</p>
+  <p class="sub">A number-base calculator for CS students. Converts between bases, two's complement, IEEE 754 floats, fixed point and text, and shows every step of the working, the way an exam asks for it.</p>
   <div class="actions">
     <a class="btn solid" href="https://play.google.com/store/apps/details?id=com.labyrinthcode.basewhiz">Google Play</a>
+    <a class="btn" href="/basewhiz/privacy/">Privacy policy</a>
     <a class="btn" href="mailto:labyrinthcode10@gmail.com"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>Support · labyrinthcode10@gmail.com</a>
-    <a class="btn" href="/basewhiz/privacy/">Privacy</a>
   </div>
   <dl class="meta"><div><dt>Role</dt><dd>Design, code, release</dd></div><div><dt>Platforms</dt><dd>Android · iOS</dd></div><div><dt>Core stack</dt><dd>Kotlin Multiplatform</dd></div><div><dt>Status</dt><dd>v2.1 on Google Play. v2.3, with the iOS app, on the way.</dd></div></dl>
 </section>
 <section class="section"><div class="section-head"><h2>Screens</h2></div>
   <div class="gallery">
-    <img src="/assets/basewhiz/phone-01.webp" alt="BaseWhiz phone screen 1 of 6" width="540" height="960" loading="lazy">
-    <img src="/assets/basewhiz/phone-02.webp" alt="BaseWhiz phone screen 2 of 6" width="540" height="960" loading="lazy">
-    <img src="/assets/basewhiz/phone-03.webp" alt="BaseWhiz phone screen 3 of 6" width="540" height="960" loading="lazy">
-    <img src="/assets/basewhiz/phone-04.webp" alt="BaseWhiz phone screen 4 of 6" width="540" height="960" loading="lazy">
-    <img src="/assets/basewhiz/phone-05.webp" alt="BaseWhiz phone screen 5 of 6" width="540" height="960" loading="lazy">
-    <img src="/assets/basewhiz/phone-06.webp" alt="BaseWhiz phone screen 6 of 6" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-01.webp" alt="BaseWhiz screen 1 of 7" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-02.webp" alt="BaseWhiz screen 2 of 7" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-03.webp" alt="BaseWhiz screen 3 of 7" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-04.webp" alt="BaseWhiz screen 4 of 7" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-05.webp" alt="BaseWhiz screen 5 of 7" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-06.webp" alt="BaseWhiz screen 6 of 7" width="540" height="960" loading="lazy">
+    <img src="/assets/basewhiz/phone-07.webp" alt="BaseWhiz screen 7 of 7" width="540" height="960" loading="lazy">
   </div>
 </section>
 <section class="section"><div class="section-head"><h2>What it does</h2></div>
   <div class="grid c3">
-    <div class="cell"><h3>Convert</h3><p>Any base from 2 to 36. Two's complement, one's complement and sign-magnitude at 8 to 64 bits. IEEE 754 half, single and double. BCD, Gray, Excess-3, and text to UTF-8 bytes.</p></div>
-    <div class="cell"><h3>Steps</h3><p>Shows the working: repeated divisions, place values, and the sign, exponent and mantissa of a float.</p></div>
+    <div class="cell"><h3>Convert</h3><p>Any base from 2 to 36. Two's complement, one's complement and sign-magnitude at 8 to 64 bits. IEEE 754 half, single, double and bfloat16. Fixed point in Q notation, BCD, Gray, Excess-3 and UTF-8 text.</p></div>
+    <div class="cell"><h3>Steps</h3><p>Shows the working: repeated divisions, place values, and the sign, exponent and mantissa of a float. Says when an answer is exact and when it was rounded.</p></div>
     <div class="cell"><h3>Calculate</h3><p>Exact big-number maths. Bitwise ops in an 8 to 64-bit word with carry, overflow, zero and negative flags.</p></div>
-    <div class="cell"><h3>Bits</h3><p>A 64-bit bitboard to flip, shift, rotate and invert bits.</p></div>
-    <div class="cell"><h3>Practice</h3><p>Rounds of ten questions with a streak.</p></div>
+    <div class="cell"><h3>Bits</h3><p>A bitboard of up to 64 bits to flip, shift, rotate, invert and byte-swap. Reads its bytes in both orders.</p></div>
+    <div class="cell"><h3>Practice</h3><p>Rounds of ten questions with steps and a streak, plus a new question of the day.</p></div>
+    <div class="cell"><h3>Copy as code</h3><p>Hold Copy for a C or Python literal, the word's bytes in big- or little-endian order, or the UTF-8 bytes of text.</p></div>
+    <div class="cell"><h3>Widgets</h3><p>Home-screen widgets for the question of the day, with its streak, and the last conversion in four bases. Launcher shortcuts on Android.</p></div>
+    <div class="cell"><h3>From anywhere</h3><p>Select a number in another app and choose Convert in BaseWhiz. On iPhone, Siri and Shortcuts run Convert number.</p></div>
     <div class="cell"><h3>Private</h3><p>No ads, no account, no internet permission. A searchable, pinnable history stays on the device.</p></div>
   </div>
 </section>
 <section class="section"><div class="section-head"><h2>How it's built</h2></div>
   <div class="table-wrap"><table class="stack"><thead><tr><th>Layer</th><th>Tech</th><th>Notes</th></tr></thead><tbody>
-    <tr><td>Shared</td><td>Kotlin 2.4 Multiplatform, Room KMP with bundled SQLite</td><td>Conversion engine, ViewModels and history</td></tr>
-    <tr><td>Android</td><td>Jetpack Compose, Material 3</td><td>Navigation Compose</td></tr>
-    <tr><td>iOS</td><td>SwiftUI + Observation, SKIE interop</td><td>iOS strings generated from the Android XML</td></tr>
+    <tr><td>Shared</td><td>Kotlin 2.4 Multiplatform, Room KMP with bundled SQLite</td><td>Conversion engine, ViewModels, history, question of the day and widget data</td></tr>
+    <tr><td>Android</td><td>Jetpack Compose, Material 3</td><td>Navigation Compose. Two panes on tablets, hardware keyboard shortcuts</td></tr>
+    <tr><td>Android extras</td><td>Jetpack Glance, PROCESS_TEXT, launcher shortcuts</td><td>Two home-screen widgets; Convert in BaseWhiz on selected text</td></tr>
+    <tr><td>iOS</td><td>SwiftUI + Observation, SKIE interop</td><td>iPhone and iPad. iOS strings generated from the Android XML</td></tr>
+    <tr><td>iOS extras</td><td>WidgetKit, App Intents, action extension</td><td>Two widgets, Siri and Shortcuts, Convert in BaseWhiz on selected text</td></tr>
+    <tr><td>iOS storage</td><td>App Group</td><td>App, widgets and action extension share history and settings</td></tr>
     <tr><td>Engine</td><td>Pure-Kotlin PortableBigInteger</td><td>Used on iOS; fuzz-tested against java.math</td></tr>
     <tr><td>Backend</td><td>None</td><td>Fully offline</td></tr>
   </tbody></table></div>
