@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Epsilon · Amr Essam</title><meta name="description" content="Epsilon: an offline-first point of sale for cafés and restaurants in Egypt, with an online ordering menu, an owner phone app and a per-shop customer app."><link rel="icon" href="/assets/epsilon/icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Martian+Mono:wght@400;700;800&display=swap"><link rel="stylesheet" href="/assets/site.css?v=3"></head><body style="--brand:#f3a825">
+<header class="top"><div class="wrap"><a class="home" href="/">amr.essam</a><nav><a href="/#work">work</a><a href="/about/">about</a><a href="/#redacted">redacted</a><a class="opt" href="/#stack">stack</a><a href="/#contact">contact</a></nav></div></header>
+<main class="wrap">
+<p class="crumbs"><a href="/">~</a> / <a href="/#work">work</a> / epsilon</p>
+<section class="p-head">
+  <img class="p-icon" src="/assets/epsilon/icon.png" alt="Epsilon app icon" width="96" height="96">
+  <p class="kicker"><b>Point of sale</b> · Windows · Web · Android</p>
+  <h1 class="display">Epsilon</h1>
+  <p class="sub">Offline-first point of sale for cafés and restaurants in Egypt, with an online ordering menu, an owner phone app and a per-shop customer app.</p>
+  <p class="small">One order, on every screen. And if the internet drops, the till keeps going.</p>
+  <div class="actions"><a class="btn solid" href="https://epsilonpos.com">epsilonpos.com</a><a class="btn" href="mailto:amr.omar.201200@gmail.com"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>Contact · amr.omar.201200@gmail.com</a></div>
+  <dl class="meta"><div><dt>Role</dt><dd>Product, backend, frontend, mobile, ops</dd></div><div><dt>Platforms</dt><dd>Windows · Web · PWA · Android</dd></div><div><dt>Core stack</dt><dd>Go · React · Postgres · SQLite</dd></div><div><dt>Status</dt><dd>In use by shops · v4.30</dd></div></dl>
+</section>
+<section class="section"><div class="section-head"><h2>The product</h2></div>
+  <div class="grid c3">
+    <div class="cell"><p class="label">Windows</p><h3>Offline POS</h3><p>Dine-in, takeaway, delivery, split bills, promotions and loyalty. One Windows exe with SQLite that installs and updates itself.</p></div>
+    <div class="cell"><p class="label">Shop LAN</p><h3>Kitchen &amp; floor</h3><p>Kitchen screen or printed tickets, a LAN waiter page with no app to install, a self-order kiosk and a customer display. ESC/POS printing or PDF receipts.</p></div>
+    <div class="cell"><p class="label">Web</p><h3>Online menu</h3><p>Each shop gets a public web menu on its own subdomain. Cash, InstaPay, wallet or bank transfer. Orders land on the cashier with a chime; customers get order-status push alerts.</p></div>
+    <div class="cell"><p class="label">PWA</p><h3>Owner app</h3><p>Live sales and trends, alerts (late kitchen ticket, void, PC offline) and day reports as PDF. Cashflow and staff-pay changes are queued for the POS to apply.</p></div>
+    <div class="cell"><p class="label">POS</p><h3>Back office</h3><p>Stock, suppliers, customers, cashflow, reports, staff pay and attendance. Roles for owner, cashier, waiter and kitchen. Telegram day reports, local and encrypted cloud backups.</p></div>
+    <div class="cell"><p class="label">Android</p><h3>Customer app</h3><p>A branded Android app per shop, built with Kotlin Multiplatform. Arabic and English, Google sign-in.</p></div>
+  </div>
+</section>
+<section class="section"><div class="section-head"><h2>Architecture</h2></div>
+<pre class="ascii">+---------------------------+
+| <b>Update feed</b> (Supabase)    |
+| Ed25519-signed releases   |
++---------------------------+
+              | poll, verify, swap
+              v
+ SHOP LAN                               CLOUD
++---------------------------+          +---------------------------+
+| <b>POS exe</b>                   |  HTTPS   | <b>Cloud bridge</b>              |
+| Go + React, SQLite        |&lt;--------&gt;| Go + Gin                  |
+| API + UI on one port      |REST, gzip| Postgres + RLS            |
++---------------------------+   JSON   +---------------------------+
+              ^                             |          |          |
+              | SSE realtime                |          |          |
+              v                             v          v          v
++---------------------------+          +--------+ +---------+ +-------+
+| <b>LAN browsers</b>, no install  |          |<b>Web menu</b>| |<b>Owner PWA</b>| |<b>Android</b>|
+| waiter page, kitchen,     |          | React  | |Web Push | |  app  |
+| kiosk, customer display   |          +--------+ +---------+ +-------+
++---------------------------+</pre>
+  <ul class="points">
+    <li>The shop's data lives on the shop PC. The cloud keeps only a bridge: the menu, online orders and their status, owner totals and 90 days of day reports.</li>
+    <li>The POS pushes its changes, pulls new online orders and acks them.</li>
+    <li>Waiter, kitchen, kiosk and display devices are plain browsers on the shop LAN, with 12-hour sessions and SSE for realtime updates.</li>
+    <li>REST and JSON everywhere. No gRPC, no WebSockets.</li>
+  </ul>
+</section>
+<section class="section"><div class="section-head"><h2>Engineering highlights</h2></div>
+  <div class="grid c2">
+    <div class="cell"><h3>Offline licensing</h3><p>Ed25519-signed serials bound to the PC, with paid modules (analytics, stock, loyalty, kitchen, kiosk, payroll and more). Verified offline, no license server. Issued from a vendor-side terminal UI.</p></div>
+    <div class="cell"><h3>Signed self-update</h3><p>The exe polls a release feed, verifies an Ed25519 signature, backs up the database, swaps the binary and keeps the previous one. A rollback button, plus a remote kill switch for a pulled version.</p></div>
+    <div class="cell"><h3>Multi-tenant cloud</h3><p>One Postgres for every shop. Tenant isolation is enforced by row-level security through a restricted role.</p></div>
+    <div class="cell"><h3>Auth</h3><p>Customers sign in with Google or Apple per shop; the cloud verifies id tokens, issues EdDSA JWTs and refresh secrets, with per-IP rate limits. Owners link a phone by QR one-time code, then a bearer token.</p></div>
+    <div class="cell"><h3>Sealed backups</h3><p>Cloud backups are sealed with an X25519 public key. Only an offline private key opens them.</p></div>
+    <div class="cell"><h3>No .env in the field</h3><p>Shipped config is encrypted at rest with Windows DPAPI.</p></div>
+  </div>
+</section>
+<section class="section"><div class="section-head"><h2>Components</h2></div>
+  <div class="table-wrap"><table class="stack"><thead><tr><th>Component</th><th>Stack</th><th>Role</th></tr></thead><tbody>
+    <tr><td>POS app</td><td>Go 1.26, Gin, SQLite, Squirrel, Goose, zerolog, chromedp (PDF), cron. UI: React 19, Vite, Tailwind 4, TanStack Query/Table/Virtual, zustand, i18next, Bun</td><td>Single exe serving the API and the embedded UI on one port</td></tr>
+    <tr><td>Cloud bridge</td><td>Go, Gin, Postgres 18 + RLS, pgx v5, goose, EdDSA JWT, webpush</td><td>Web menu, ordering API, owner API, admin</td></tr>
+    <tr><td>Web menu</td><td>React 19, Vite, TypeScript</td><td>Public per-shop ordering menu</td></tr>
+    <tr><td>Owner app</td><td>PWA, Web Push (VAPID)</td><td>Live sales, alerts, reports</td></tr>
+    <tr><td>Customer app</td><td>Kotlin Multiplatform, Compose + Material 3, Navigation 3, Koin, Ktor client</td><td>Per-shop Android build (iOS not built yet)</td></tr>
+    <tr><td>Release &amp; backups</td><td>Supabase: release feed, storage buckets, edge function</td><td>Signed updates and backup storage</td></tr>
+    <tr><td>License manager</td><td>Go, x/crypto Ed25519</td><td>Library plus issuer and client CLIs</td></tr>
+    <tr><td>License issuer</td><td>TypeScript, Bun, OpenTUI (React)</td><td>Vendor-side terminal UI</td></tr>
+    <tr><td>Website</td><td>Astro, static, Cloudflare Pages</td><td>Arabic-first marketing site</td></tr>
+    <tr><td>Infra</td><td>Docker on Coolify (Hetzner VPS), Traefik, Cloudflare</td><td>Hosting</td></tr>
+  </tbody></table></div>
+</section>
+<section class="section"><div class="section-head"><h2>Rewrites explored</h2></div>
+  <p class="small">The same POS backend, tried on other stacks before settling on Go.</p>
+  <div class="table-wrap"><table class="stack"><thead><tr><th>Attempt</th><th>Stack</th><th>Outcome</th></tr></thead><tbody>
+    <tr><td>v1–v3 POS backend</td><td>Go, Gin, SQLite, Wails desktop shell, Telegram bot</td><td>790+ commits, shipped up to v3.4; superseded by the current full-stack app</td></tr>
+    <tr><td>Kotlin</td><td>Ktor/Netty, Exposed, Flyway, Postgres, Koin, Playwright PDF, OpenAPI, RBAC plugin</td><td>Experiment</td></tr>
+    <tr><td>Node</td><td>Hono, Drizzle, Postgres, zod-openapi</td><td>Experiment</td></tr>
+    <tr><td>Bun</td><td>The same Hono codebase on Bun, puppeteer-core PDF</td><td>Experiment</td></tr>
+    <tr><td>Rust</td><td>axum 0.8, sqlx, tokio</td><td>Stub</td></tr>
+  </tbody></table></div>
+</section>
+<section class="section"><div class="section-head"><h2>Numbers</h2></div>
+  <div class="grid c4">
+    <div class="cell"><h3 class="num">2,900+</h3><p class="label">commits in the POS repo</p></div>
+    <div class="cell"><h3 class="num">v4.30</h3><p class="label">current release</p></div>
+    <div class="cell"><h3 class="num">12</h3><p class="label">paid modules</p></div>
+    <div class="cell"><h3 class="num">2</h3><p class="label">languages: Arabic + English</p></div>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="wrap"><span>© 2026 Amr Essam</span><span><a href="https://github.com/AmrEsam0">github</a> · <a href="https://x.com/_AmrEsam_">x</a> · <a href="mailto:amr.omar.201200@gmail.com">amr.omar.201200@gmail.com</a></span></div></footer>
+</body></html>
