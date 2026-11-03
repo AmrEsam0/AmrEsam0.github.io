@@ -113,10 +113,10 @@ code { font-family: var(--mono); font-size: .92em; color: var(--text); backgroun
 .meta dd { margin: 4px 0 0; color: var(--text); font-size: 13px; }
 
 /* screenshots: horizontal strip on small screens, row on large */
-.gallery { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(220px, 28vw, 300px); gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--line2) transparent; }
+.gallery { --n: 2; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - (var(--n) - 1) * 12px) / var(--n)); gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--line2) transparent; }
 .gallery::-webkit-scrollbar { height: 6px; }
 .gallery::-webkit-scrollbar-thumb { background: var(--line2); }
-.gallery img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; scroll-snap-align: start; border: 1px solid var(--line); background: var(--block); }
+.gallery img { width: 100%; aspect-ratio: 9 / 16; object-fit: contain; scroll-snap-align: start; border: 1px solid var(--line); background: var(--block); }
 .wide { display: grid; gap: 12px; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .wide.c2 { grid-template-columns: repeat(2, 1fr); } .wide.c3 { grid-template-columns: repeat(3, 1fr); } }
 .wide img { width: 100%; height: auto; border: 1px solid var(--line); background: var(--block); }
@@ -175,6 +175,10 @@ h3.num { font-size: clamp(26px, 3vw, 38px); font-weight: 800; letter-spacing: -.
 .policy li { margin-bottom: 14px; }
 .policy li::marker { color: var(--brand); }
 .policy li p { margin: 0; }
-.gallery.landscape { grid-auto-columns: clamp(280px, 72vw, 560px); }
+/* whole images only: --n of them fill the strip exactly, the rest are a swipe away */
+@media (min-width: 560px) { .gallery { --n: 3; } }
+@media (min-width: 900px) { .gallery { --n: 4; } }
+.gallery.landscape { --n: 1; }
+@media (min-width: 720px) { .gallery.landscape { --n: 2; } }
 .gallery > figure { scroll-snap-align: start; }
 .gallery.landscape img { aspect-ratio: 16 / 10; }
