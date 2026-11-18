@@ -147,6 +147,7 @@ ul.points li::before { content: ""; position: absolute; left: 0; top: 17px; widt
 
 /* seams found while assembling pages */
 .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.actions + .small { margin-top: 14px; }
 .section > .small { margin-top: 14px; }
 .section > .small + .table-wrap { margin-top: 14px; }
 h3.num { font-size: clamp(26px, 3vw, 38px); font-weight: 800; letter-spacing: -.05em; line-height: 1; margin-bottom: 10px; }
