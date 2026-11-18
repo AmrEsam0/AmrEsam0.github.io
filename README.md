@@ -1,6 +1,6 @@
 # amresam0.github.io
 
-Amr Essam's portfolio, plus public pages for the LabyrinthCode apps. Plain static HTML, no build step.
+Amr Essam's portfolio, plus public pages for the NullCheck Labs apps. Plain static HTML, no build step.
 
 - `/` home, `/<project>/` one page per project. Theme: `assets/site.css`; images: `assets/<project>/`.
 - `/egydata/`, `/omega/` are government work: name and stack only, everything else redacted.
