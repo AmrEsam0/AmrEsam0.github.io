@@ -1,14 +1,15 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EgyGrooves · Amr Essam</title><meta name="description" content="Live internet radio for Android and iOS, built around Egypt and the Arab world."><link rel="icon" href="/assets/egygrooves/icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Martian+Mono:wght@400;700;800&display=swap"><link rel="stylesheet" href="/assets/site.css?v=8"></head><body style="--brand:#8a45ff">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EgyGrooves · Amr Essam</title><meta name="description" content="Live internet radio for Android, iOS and Mac, built around Egypt and the Arab world."><link rel="icon" href="/assets/egygrooves/icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Martian+Mono:wght@400;700;800&display=swap"><link rel="stylesheet" href="/assets/site.css?v=8"></head><body style="--brand:#8a45ff">
 <header class="top"><div class="wrap"><a class="home" href="/">amr.essam</a><nav><a href="/#work">work</a><a href="/about/">about</a><a href="/#redacted">redacted</a><a class="opt" href="/#stack">stack</a><a href="/#contact">contact</a></nav></div></header>
 <main class="wrap">
 <p class="crumbs"><a href="/">~</a> / <a href="/#work">work</a> / egygrooves</p>
 <section class="p-head">
   <img class="p-icon" src="/assets/egygrooves/icon.png" alt="EgyGrooves app icon" width="96" height="96">
-  <p class="kicker"><b>Audio</b> · Android · iOS · Android Auto</p>
+  <p class="kicker"><b>Audio</b> · Android · iOS · macOS · Android Auto</p>
   <h1 class="display">EgyGrooves</h1>
-  <p class="sub">Live internet radio for Android and iOS, built around Egypt and the Arab world. Pick a station by genre or country, drag a tuner dial like an old radio, or start one from the car or a home-screen widget.</p>
-  <div class="actions"><a class="btn solid" href="https://play.google.com/store/apps/details?id=com.labyrinthcode.egygrooves">Google Play</a><a class="btn" href="/egygrooves/privacy/">Privacy policy</a><a class="btn" href="mailto:nullchecklabs@gmail.com"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>Support · nullchecklabs@gmail.com</a></div>
-  <dl class="meta"><div><dt>Role</dt><dd>Design, code, data, release</dd></div><div><dt>Platforms</dt><dd>Android · iOS · Android Auto</dd></div><div><dt>Core stack</dt><dd>Kotlin Multiplatform + Supabase</dd></div><div><dt>Status</dt><dd>v2.4 · Android on Google Play</dd></div></dl>
+  <p class="sub">Live internet radio for Android, iOS and Mac, built around Egypt and the Arab world. Pick a station by genre or country, drag a tuner dial like an old radio, or start one from the car, a home-screen widget or the Mac's menu bar.</p>
+  <div class="actions"><a class="btn solid" href="https://play.google.com/store/apps/details?id=com.labyrinthcode.egygrooves">Google Play</a><a class="btn solid" href="https://github.com/AmrEsam0/egygrooves-app/releases/latest">Download for Mac</a><a class="btn" href="/egygrooves/privacy/">Privacy policy</a><a class="btn" href="mailto:nullchecklabs@gmail.com"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>Support · nullchecklabs@gmail.com</a></div>
+  <p class="small">Download for Mac opens the latest release: pick <code>EgyGrooves_&lt;version&gt;_aarch64.dmg</code>. Mac: Apple silicon, macOS 14 or later. Not notarized yet, so the first time it's blocked: open System Settings, Privacy &amp; Security, and choose Open Anyway (on macOS 14, right-click EgyGrooves and choose Open).</p>
+  <dl class="meta"><div><dt>Role</dt><dd>Design, code, data, release</dd></div><div><dt>Platforms</dt><dd>Android · iOS · macOS · Android Auto</dd></div><div><dt>Core stack</dt><dd>Kotlin Multiplatform + Supabase</dd></div><div><dt>Status</dt><dd>v2.4 · Android on Google Play. v1.0 for macOS.</dd></div></dl>
 </section>
 <section class="section"><div class="section-head"><h2>Screens</h2></div>
   <div class="gallery">
@@ -20,6 +21,9 @@
     <img src="/assets/egygrooves/phone-06.webp" alt="EgyGrooves screen 6 of 6" width="540" height="960" loading="lazy">
   </div>
 </section>
+<section class="section"><div class="section-head"><h2>On the Mac</h2></div>
+  <div class="wide"><figure><img src="/assets/egygrooves/mac-01.webp" alt="EgyGrooves on macOS: sidebar of genres, the station list and Now Playing with the tuner dial" width="1100" height="700" loading="lazy"><figcaption>Sidebar, stations and the dial side by side. A menu bar player keeps the radio on with the window closed.</figcaption></figure></div>
+</section>
 <section class="section"><div class="section-head"><h2>What it does</h2></div>
   <div class="grid c3">
     <div class="cell"><h3>Egypt first</h3><p>Then Saudi Arabia, Lebanon, Morocco and more of the Arab world, plus the US and Europe. Browse by genre or country, or search as you type.</p></div>
@@ -29,6 +33,7 @@
     <div class="cell"><h3>Android Auto</h3><p>Favorites, recent or all stations on the car screen, or ask for one by voice.</p></div>
     <div class="cell"><h3>Home-screen widget</h3><p>The last played station and favorites. Tap one to start it.</p></div>
     <div class="cell"><h3>Share a station</h3><p>From Now Playing or a station's menu. A shared egygrooves:// link opens the station in the player.</p></div>
+    <div class="cell"><h3>Mac app</h3><p>A native three-column window, a menu bar player, media keys and shortcuts: Space to play, ⌘→ and ⌘← to change station.</p></div>
     <div class="cell"><h3>Arabic + English</h3><p>Full RTL. Per-app language on Android 13+.</p></div>
     <div class="cell"><h3>No account, no ads</h3><p>Favorites, recents, themes and an offline-cached catalog.</p></div>
   </div>
@@ -38,6 +43,7 @@
     <tr><td>Shared</td><td>Kotlin 2.4 Multiplatform, Room KMP</td><td>:shared module holds models, data layer, ViewModels, the sleep timer and egygrooves:// links; Room KMP cache.</td></tr>
     <tr><td>Android</td><td>Jetpack Compose, Material 3, Navigation Compose, Media3 ExoPlayer, Coil</td><td>Shared-element transitions; ExoPlayer with HLS inside a Media3 MediaLibraryService.</td></tr>
     <tr><td>iOS</td><td>SwiftUI, AVPlayer, SKIE</td><td>URLSession image loader; SKIE for Kotlin interop.</td></tr>
+    <tr><td>macOS</td><td>SwiftUI, AppKit, AVPlayer</td><td>Shares the iOS design system and audio engine and the same Kotlin framework; three-column window and a menu bar extra; sandboxed.</td></tr>
     <tr><td>Car</td><td>Media3 MediaLibrarySession, CarPlay</td><td>Android Auto browse tree (Favorites, Recent, All) and voice play. CarPlay station browser built; simulator-only until Apple grants the entitlement.</td></tr>
     <tr><td>Widgets</td><td>Jetpack Glance, WidgetKit</td><td>Android widget on Glance; iOS widget extension reads a snapshot the app writes to a shared App Group.</td></tr>
     <tr><td>Backend</td><td>Supabase Postgres, supabase-kt Postgrest, Ktor</td><td>Station catalog with SQL migrations; OkHttp / Darwin engines.</td></tr>
